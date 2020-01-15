@@ -66,7 +66,7 @@ export class SpotifyService {
   getPlayList() {
 
     return Observable.create((observer) => {
-      this.http.get<any[]>(`https://api.spotify.com/v1/me/playlists`, {headers: this.headers} ).subscribe(
+      this.http.get<any[]>(`https://api.spotify.com/v1/me/playlists?limit=10`, {headers: this.headers} ).subscribe(
         (data) => {
           observer.next(data);
           observer.complete();

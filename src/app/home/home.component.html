@@ -28,23 +28,14 @@
 
 <div>
     <mat-grid-list cols="4" rowHeight="100px">
-        <mat-grid-tile [colspan]="1" [rowspan]="4">
+        <mat-grid-tile [colspan]="1" [rowspan]="4" *ngFor="let playList of playLists.items; let i=index" (click)="getPlayListTracks(playList.id)">
             <mat-card class="example-card">
                 <mat-card-header>
                   <div class="example-header-image"></div>
-                  <mat-card-title>Shiba Inu</mat-card-title>
-                  <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                <mat-card-title>{{playList.name}}</mat-card-title>
+                <mat-card-subtitle>Tracks {{playList.tracks.total}}</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-                <mat-card-content>
-                  <p>
-                    The Shiba Inu is the smallest of the six original and 
-                  </p>
-                </mat-card-content>
-                <mat-card-actions>
-                  <button mat-button>LIKE</button>
-                  <button mat-button>SHARE</button>
-                </mat-card-actions>
+                <img mat-card-image [src]="playList.images[0].url" alt="Photo of a Shiba Inu">
               </mat-card>
         </mat-grid-tile>
       </mat-grid-list>

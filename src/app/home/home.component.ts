@@ -24,9 +24,7 @@ export class HomeComponent implements OnInit {
         } ],
       };
 
-      playList: any = {
-
-      }
+    playLists: any;
 
   constructor(private spotifyService: SpotifyService, private route: ActivatedRoute, private router : Router) { }
 
@@ -52,7 +50,20 @@ export class HomeComponent implements OnInit {
     this.spotifyService.getPlayList()
     .subscribe((res: any) => {
 
-        this.playList = res;
+        this.playLists = res;
+
+      
+    }, err => {
+      console.log(err);
+    });
+
+  }
+
+  getPlayListTracks(playListId){
+    this.spotifyService.getPlayList()
+    .subscribe((res: any) => {
+
+        this.playLists = res;
 
       
     }, err => {
