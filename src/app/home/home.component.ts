@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { SpotifyService } from 'src/app/service/spotify.service';
+import { ActivatedRoute, Router  } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  userInfo: any[] = [];
+
+  constructor(private spotifyService: SpotifyService, private route: ActivatedRoute, private router : Router) { }
 
   ngOnInit() {
+
+      this.spotifyService.getUserInfo().subscribe((res: any) => {
+
+        this.userInfo = res;
+          console.log(res);
+          
+      }, err => {
+        console.log(err);
+      });
   }
 
 }

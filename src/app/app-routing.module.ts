@@ -9,8 +9,8 @@ const routes: Routes = [
   { path: 'home', loadChildren: './home/home.module#HomeModule' },
   { path: 'playlist', loadChildren: './playlist/playlist.module#PlaylistModule' },
   { path: 'login/:token', component: LoginComponent },
-  { path: '**', redirectTo: 'login/noAuth' },
-  { path: '', redirectTo: 'login/noAuth', pathMatch: 'full' }
+  { path: '**', redirectTo: 'login/noAuth?-' },
+  { path: '', redirectTo: 'login/noAuth?-', pathMatch: 'full' }
 
 ];
 
