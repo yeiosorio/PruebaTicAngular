@@ -63,10 +63,10 @@ export class SpotifyService {
    * @author Yeison osorio
    * @desc Call the spotify authorize service
    **/
-  getPlayList(user_id: string) {
+  getPlayList() {
 
     return Observable.create((observer) => {
-      this.http.get<any[]>(`https://api.spotify.com/v1/${user_id}`, {headers: this.headers} ).subscribe(
+      this.http.get<any[]>(`https://api.spotify.com/v1/me/playlists`, {headers: this.headers} ).subscribe(
         (data) => {
           observer.next(data);
           observer.complete();
