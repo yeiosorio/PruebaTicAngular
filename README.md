@@ -1,14 +1,26 @@
 # PruebaTicAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
+Nota importante: actualizar la pagina si es necesario si no muestra informacion luego de iniciar sesion con Spotify
+Al parecer queda pegado el token y no lo reconoce la primera vez
+
+Angular 8
+Varsiones para un correcto funcionamiento
+Angular CLI: 8.3.23
+Node: 12.13.1
+Angular: 8.2.14
+... animations, common, compiler, compiler-cli, core, forms
+... language-service, platform-browser, platform-browser-dynamic
+... router
+
+Package                           Version
+-----------------------------------------------------------
+rxjs                              6.4.0
+typescript                        3.5.3
+webpack                           4.39.2
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Corre `ng serve -o` para lanzar el proyecto en navegador `http://localhost:4200/`
 
 ## Build
 
@@ -18,9 +30,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help
 
