@@ -1,0 +1,21 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  td.mat-cell {
+    color: #eaeaea;
+  }
+  th.mat-header-cell{
+    color: #d05b5b;
+    font-size: 20px;
+  }
+
+  table{
+    background-color: #2b2b2b;
+    width: 100%;
+  }

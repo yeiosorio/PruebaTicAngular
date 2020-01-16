@@ -1,32 +1,35 @@
 
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-  
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> 1</td>
-    </ng-container>
   
     <!-- Name Column -->
-    <ng-container matColumnDef="name">
+    <ng-container matColumnDef="Track">
+      <th mat-header-cell *matHeaderCellDef> Track </th>
+      <td mat-cell *matCellDef="let element"> {{element.track.name}} </td>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="Album">
       <th mat-header-cell *matHeaderCellDef> Album </th>
       <td mat-cell *matCellDef="let element"> {{element.track.album.name}} </td>
     </ng-container>
   
     <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
+    <ng-container matColumnDef="Artist">
       <th mat-header-cell *matHeaderCellDef> Artist </th>
       <td mat-cell *matCellDef="let element"> {{element.track.album.artists[0].name}} </td>
     </ng-container>
   
     <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
+    <ng-container matColumnDef="Duration">
       <th mat-header-cell *matHeaderCellDef> Duration </th>
       <td mat-cell *matCellDef="let element"> {{element.track.duration_ms}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Play">
+      <th mat-header-cell *matHeaderCellDef> Play </th>
+      <td mat-cell *matCellDef="let element"> 
+        <iframe [src]="element.track.uri | domseguro" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      </td>
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

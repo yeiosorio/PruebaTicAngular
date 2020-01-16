@@ -2,6 +2,21 @@ import { Component, OnInit } from '@angular/core';
 
 import { SpotifyService } from 'src/app/service/spotify.service';
 import { ActivatedRoute, Router  } from '@angular/router';
+import {MatTableDataSource} from '@angular/material';
+
+export interface tracks {
+  track: {
+    name: "",
+    duration_ms: 0,
+    album: {
+      name: ""
+    },
+    artists: [{
+        name: "",
+      }
+    ],
+  },
+}
 
 @Component({
   selector: 'app-playlist',
@@ -12,8 +27,9 @@ import { ActivatedRoute, Router  } from '@angular/router';
 export class PlaylistComponent implements OnInit {
   tracks: any;
 
-  displayedColumns: string[] = ['Album', 'Artista', 'Duracion'];
-  dataSource: any;
+  displayedColumns: string[] = ['Track', 'Album', 'Artist', 'Duration', 'Play'];
+  
+  dataSource: MatTableDataSource<tracks>;
   
   constructor(private spotifyService: SpotifyService, private route: ActivatedRoute, private router : Router) { }
 
@@ -34,7 +50,7 @@ export class PlaylistComponent implements OnInit {
     .subscribe((res: any) => {
 
         if (res) {
-          this.dataSource = res.items
+          this.dataSource = new MatTableDataSource(res.items);
           this.tracks = res;
         }
       
