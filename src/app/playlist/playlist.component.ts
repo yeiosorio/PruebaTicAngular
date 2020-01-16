@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Location } from '@angular/common';
 import { SpotifyService } from 'src/app/service/spotify.service';
 import { ActivatedRoute, Router  } from '@angular/router';
 import {MatTableDataSource} from '@angular/material';
@@ -31,7 +31,7 @@ export class PlaylistComponent implements OnInit {
   
   dataSource: MatTableDataSource<tracks>;
   
-  constructor(private spotifyService: SpotifyService, private route: ActivatedRoute, private router : Router) { }
+  constructor(private spotifyService: SpotifyService, private route: ActivatedRoute, private router : Router, private location: Location) { }
 
   ngOnInit() {
     const playListId = this.route.snapshot.paramMap.get('playlistId');
@@ -77,5 +77,9 @@ export class PlaylistComponent implements OnInit {
     return this.addZ(hrs) + ':' + this.addZ(mins) + ':' + this.addZ(secs)+ '.' + this.addZ(ms);
 
   }
+
+  goBack() {
+    this.location.back();
+  }   
 
 }

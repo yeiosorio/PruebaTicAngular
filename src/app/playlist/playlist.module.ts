@@ -7,6 +7,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { DomseguroPipe } from '../domseguro.pipe';
+import {MatButtonModule} from '@angular/material/button';
 
 const routes: Routes = [
   { path: '', component: PlaylistComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     MatTableModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule
   ],
   exports: [RouterModule],
   declarations: [PlaylistComponent, DomseguroPipe],
