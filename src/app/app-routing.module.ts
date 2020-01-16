@@ -7,7 +7,7 @@ const routes: Routes = [
   // Dinamic imports
   // Se hace carga de rutas haciendo uso de [lazy loaded] para mejorar la carga de componentes
   { path: 'home', loadChildren: './home/home.module#HomeModule' },
-  { path: 'playlist', loadChildren: './playlist/playlist.module#PlaylistModule' },
+  { path: 'playlist/:playlistId', loadChildren: './playlist/playlist.module#PlaylistModule' },
   { path: 'login/:token', component: LoginComponent },
   { path: '**', redirectTo: 'login/noAuth?-' },
   { path: '', redirectTo: 'login/noAuth?-', pathMatch: 'full' }

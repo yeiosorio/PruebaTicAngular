@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { RouterModule, Routes } from '@angular/router';
 import { PlaylistComponent } from './playlist.component';
+import {MatTableModule} from '@angular/material/table';
 
 const routes: Routes = [
   { path: '', component: PlaylistComponent },
@@ -11,7 +12,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MatTableModule
   ],
   exports: [RouterModule],
   declarations: [PlaylistComponent],

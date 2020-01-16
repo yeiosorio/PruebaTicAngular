@@ -31,7 +31,7 @@ export class SpotifyService {
   authorizeAccount() {
     const scope = 'streaming playlist-read-private user-read-email user-read-private';
     const pathUrl = `?response_type=token&client_id=a079c3fd3aa6471db5813440511a67b7&scope=${scope}`;
-    const path = `${pathUrl}&redirect_uri=http://localhost:4200/login/callback&show_dialog=true`;
+    const path = `${pathUrl}&redirect_uri=http://localhost:4200/login/callback`;
 
     window.location.href = this.URL_API + path
 
@@ -39,7 +39,7 @@ export class SpotifyService {
 
   /**
    * @author Yeison osorio
-   * @desc Call the spotify authorize service
+   * @desc user's info endpoint
    **/
   getUserInfo(): Observable<any[]> {
 
@@ -61,12 +61,12 @@ export class SpotifyService {
 
   /**
    * @author Yeison osorio
-   * @desc Call the spotify authorize service
+   * @desc get list of playlist from current user login
    **/
   getPlayList() {
 
     return Observable.create((observer) => {
-      this.http.get<any[]>(`https://api.spotify.com/v1/me/playlists?limit=10`, {headers: this.headers} ).subscribe(
+      this.http.get<any[]>(`https://api.spotify.com/v1/me/playlists`, {headers: this.headers} ).subscribe(
         (data) => {
           observer.next(data);
           observer.complete();
@@ -84,12 +84,12 @@ export class SpotifyService {
     
   /**
    * @author Yeison osorio
-   * @desc Call the spotify authorize service
+   * @desc get list tracks from a playlist selected limited to 30 songs
    **/
-    getTracks(user_id: string): Observable<any[]> {
+    getTracks(playlistId: string): Observable<any[]> {
 
       return Observable.create((observer) => {
-        this.http.get<any[]>(`https://api.spotify.com/v1/${user_id}`, {headers: this.headers} ).subscribe(
+        this.http.get<any[]>(`https://api.spotify.com/v1/playlists/${playlistId}/tracks?market=es&limit=30`, {headers: this.headers} ).subscribe(
           (data) => {
             observer.next(data);
             observer.complete();
@@ -106,7 +106,7 @@ export class SpotifyService {
 
   /**
    * @author Yeison osorio
-   * @desc Call the spotify authorize service
+   * @desc play a song from player endpoint
    **/
     playTrack(user_id: string): Observable<any[]> {
 

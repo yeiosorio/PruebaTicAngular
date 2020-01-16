@@ -28,11 +28,11 @@
 
 <div>
     <mat-grid-list cols="4" rowHeight="100px">
-        <mat-grid-tile [colspan]="1" [rowspan]="4" *ngFor="let playList of playLists.items; let i=index" (click)="getPlayListTracks(playList.id)">
+        <mat-grid-tile [colspan]="1" [rowspan]="4" *ngFor="let playList of playLists.items; let i=index" [routerLink]="['/playlist/', playList.id]" >
             <mat-card class="example-card">
                 <mat-card-header>
                   <div class="example-header-image"></div>
-                <mat-card-title>{{playList.name}}</mat-card-title>
+                <mat-card-title>{{ (playList.name.length>22)? (playList.name | slice:0:22)+'...':(playList.name)}}</mat-card-title>
                 <mat-card-subtitle>Tracks {{playList.tracks.total}}</mat-card-subtitle>
                 </mat-card-header>
                 <img mat-card-image [src]="playList.images[0].url" alt="Photo of a Shiba Inu">

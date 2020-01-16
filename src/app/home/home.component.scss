@@ -10,3 +10,12 @@ mat-list{
 .mat-divider {
     border-top-color: rgb(120, 120, 120);
 }
+
+mat-card-header .mat-card-title{
+    font-size: 14px;
+}
+
+mat-card{
+    margin: 14px;
+    height: 270px;
+}
